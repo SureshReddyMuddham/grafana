@@ -8,14 +8,14 @@ terraform {
 }
 provider "grafana" {
   url  = "http://localhost:3000"
-  auth = "eyJrIjoiZGlrT29TeTdUaGt6dEpFTGNjODVMSW1RVVhoNzhPWm0iLCJuIjoidGVzdCIsImlkIjoxfQ=="
+  auth = "grafana-api-key"
 }
 
 
 resource "grafana_contact_point" "my_contact_point" {
   name = "Send to PagerDuty Channel"
   pagerduty {
-    integration_key = "7f93a6f3a8c24c0cc00cb0584c47e43"
+    integration_key = "PagerDuty-technical-service-key"
     summary         = <<EOT
 {{ len .Alerts.Firing }} alerts are firing!
 Alert summaries:
